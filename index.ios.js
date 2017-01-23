@@ -1,10 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+import Header from './src/components/header';
 import {
   AppRegistry,
   StyleSheet,
@@ -17,15 +12,11 @@ let pic = {
   uri:  'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
 }
 
-export default class FinanceApp extends Component {
+export default class FinanceApp extends React.Component {
   render() {
     return (
 
-       <Image source={pic} style={{width: 500, height: 800}}>
-        <Text style={{alignItems: 'center', color: 'red'}}>
-         ALex POe 
-        </Text>
-      </Image>  
+      <Header title="Alex Poe"/>
 
     );
   }
