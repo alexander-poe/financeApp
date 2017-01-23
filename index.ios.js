@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './src/components/header';
+import SliderExample from './src/components/slider';
 import {
   AppRegistry,
   StyleSheet,
@@ -15,8 +16,8 @@ let pic = {
 export default class FinanceApp extends React.Component {
   render() {
     return (
-
-      <Header title="Alex Poe"/>
+      <SliderExample moneyAmount={200} />
+   
 
     );
   }
