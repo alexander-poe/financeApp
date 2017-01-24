@@ -1,8 +1,6 @@
 import React from 'react';
 import Swiper from 'react-native-swiper';
 import MainPageInput from './mainpageinput';
-import Slider
-
 import {
   View,
   Text,

@@ -3,6 +3,9 @@ import Header from './src/components/header';
 import Sliders from './src/components/slider';
 import MainPageInput from './src/components/mainpageinput';
 import Home from './src/components/swiper';
+import Test from './src/components/reducertest';
+import { Provider } from 'react-redux';
+import store from './src/store';
 import {
   AppRegistry,
   StyleSheet,
@@ -12,15 +15,11 @@ import {
 } from 'react-native';
 
 export default class FinanceApp extends React.Component {
-  componentDidMount() {
-    console.log('hello world')
-  }
-
   render() {
     return (
-      <Home />
-   
-
+      <Provider store={ store }>
+        <Test />
+      </Provider>  
     );
   }
 }
