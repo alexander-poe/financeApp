@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './src/components/header';
 import Sliders from './src/components/slider';
 import MainPageInput from './src/components/mainpageinput';
+import Home from './src/components/swiper';
 import {
   AppRegistry,
   StyleSheet,
@@ -11,9 +12,13 @@ import {
 } from 'react-native';
 
 export default class FinanceApp extends React.Component {
+  componentDidMount() {
+    console.log('hello world')
+  }
+
   render() {
     return (
-      <MainPageInput />
+      <Home />
    
 
     );

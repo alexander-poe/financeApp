@@ -22,27 +22,27 @@ class Sliders extends React.Component {
 
   //note: how can we make the slider start at a specific point?
 
-  
+
   render() {
     return (
       <View style={styles.container}>
         <Slider
           step={1}
-          value={2}
+          value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onValueChange={(value) => this.setState({value})} />
         <Text>Essentials: $ { this.state.value }</Text>
          <Slider
           step={1}
-          value={2}
+          value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onValueChange={(value2) => this.setState({value2})} />
         <Text>Flexible: $ { this.state.value2 }</Text>
          <Slider
           step={1}
-          value={2}
+          value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onValueChange={(value3) => this.setState({value3})} />

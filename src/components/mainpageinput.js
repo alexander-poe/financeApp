@@ -26,6 +26,7 @@ class MainPageInput extends React.Component {
 				<TextInput
 					style={{ height: 40, alignItems: 'center' }}
 					placeholder="$2000.00"
+					keyboardType='numeric'
 					onChangeText={ (payment) => this.setState({ payment }) }
 				/>
 				<TextInput
@@ -43,7 +44,8 @@ const styles = {
       	flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'grey'
 	},
 	textStyle: {
 		fontSize: 20
