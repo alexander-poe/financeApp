@@ -3,6 +3,16 @@ import Header from './src/components/header';
 import Sliders from './src/components/slider';
 import MainPageInput from './src/components/mainpageinput';
 import Home from './src/components/swiper';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
+import reducer from './src/reducer';
+
+import {
+  createStore, 
+  applyMiddleware, 
+  compose 
+} from 'redux';
 import {
   AppRegistry,
   StyleSheet,
@@ -18,9 +28,9 @@ export default class FinanceApp extends React.Component {
 
   render() {
     return (
-      <Home />
-   
-
+      <Provider store={ createStore(reducer) }>
+        <Home />
+      </Provider>  
     );
   }
 }
