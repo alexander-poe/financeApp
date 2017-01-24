@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './src/components/header';
-import SliderExample from './src/components/slider';
+import Sliders from './src/components/slider';
+import MainPageInput from './src/components/mainpageinput';
 import {
   AppRegistry,
   StyleSheet,
@@ -9,14 +10,10 @@ import {
   Image
 } from 'react-native';
 
-let pic = {
-  uri:  'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-}
-
 export default class FinanceApp extends React.Component {
   render() {
     return (
-      <SliderExample moneyAmount={200} />
+      <MainPageInput />
    
 
     );
