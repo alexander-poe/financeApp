@@ -22,9 +22,10 @@ class Test extends React.Component {
 	}
 }
 
-const mapStateToProps = (state, props) => ({
-	flex: 'should be redux'
-});
+const mapStateToProps = state => {
+	console.log('test:', state)
+	return {flex: state.flex}
+};
 
 
 export default connect(mapStateToProps)(Test);

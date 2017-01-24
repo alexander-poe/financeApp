@@ -3,7 +3,7 @@ import * as actions from '../actions/actions';
 
 const initState = {
 		essentials: 1000,
-		flex: 'ea',
+		flex: 'easdfdsfsf',
 		LTS: 100000,
 		date: '11/11/1111'
 	};
@@ -16,10 +16,13 @@ const reducer = (state=initState, action) => {
 			//return to each respective 
 			//ess, flex, lts
 			console.log(action.data)
+			console.log(state)
+
 			return {
-				...state,
-				flex: action.data
+				...state
 			}
+		default : 
+			return state;	
 	}
 }
 
