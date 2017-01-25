@@ -1,10 +1,12 @@
-import React from 'React';
+import React from 'React'
+import { connect } from 'react-redux'
+import * as actions from '../actions/actions'
 import { 
 	Text,
 	View,
 	Button,
-	TextInput
-} from 'react-native';
+	TextInput,
+} from 'react-native'
 
 class MainPageInput extends React.Component {
 	constructor(props) {
@@ -17,6 +19,15 @@ class MainPageInput extends React.Component {
 	//this will dispatch information to the backend
 	//on the backend all the alogrithms will be set up for
 	//keeping track of reset date
+	submitData() {
+		let nextPay = this.state.nextPay
+		let payment = this.state.payment
+		let essen = payment * .5
+		let flex = payment * .3
+		let lts = payment * .2
+		this.props.dispatch(actions.addPayment(essen, flex, lts))
+		console.log(payment, 'poop', nextPay)
+	}
 	render() {
 		const { viewStyle, textStyle } = styles;
 		return (
@@ -35,6 +46,11 @@ class MainPageInput extends React.Component {
 					keyboardType='numeric'
 					onChangeText={ (nextPay) => this.setState({ nextPay }) }
 				/>
+				<Button
+				    onPress={this.submitData.bind(this)}
+				    title="Submit"
+				    color="white"
+				/>
 			</View>		
 			)
 	}
@@ -52,4 +68,9 @@ const styles = {
 	}
 };
 
-export default MainPageInput;
+const mapStateToProps = (state, props) => ({
+	essen: state.essen,
+	flex: state.flex,
+	lts: state.l
+});
+export default connect(mapStateToProps)(MainPageInput);	

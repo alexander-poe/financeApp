@@ -1,5 +1,5 @@
 const _getUserData = 'http://localhost:8080/userfinance'
-const _addPayment = 'http://localhost:8080/addpayment'
+const _addPayments = 'http://localhost:8080/addpayments'
 
 export const getUserSuccess = data => ({
 	type: 'get_user_success',
@@ -16,7 +16,8 @@ export const getUserData = data => dispatch => {
 }
 
 export const addPayment = (essen, flex, lts) => {
-	return fetch(_addPayment,
+	console.log(essen)
+	return fetch(_addPayments,
 		{
 			method: "POST",
 			body: JSON.stringify({
@@ -26,9 +27,13 @@ export const addPayment = (essen, flex, lts) => {
 			}),
 			headers: {"Content-Type" : "application/json"}
 		}).then(res => {
-			if (res.status >= 300) throw new Error(res.statusText)
+			console.log(res,' vagina')
+			if (res.status >= 300) {
+				throw new Error(res.statusText)	
+			} 
 			return res;
 		}).then(res => {
+			console.log(res)
 			console.log('post success')
 		}).catch(e => {
 			console.error('actions ap: ', e)
