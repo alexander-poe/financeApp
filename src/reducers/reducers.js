@@ -10,17 +10,13 @@ const initState = {
 
 const reducer = (state=initState, action) => {
 	switch (action.type) {
-		case 'GET_DATA_SUCCESS' :
-			console.log('did it');
-			//divy up money here, save in var
-			//return to each respective 
-			//ess, flex, lts
-			console.log(action.data)
-			console.log(state)
-
+		case 'get_user_success' :
 			return {
-				...state
-			}
+				...state, 
+				essen: action.data.essen,
+				flex: action.data.flex,
+				lts: action.data.lts
+			}	
 		default : 
 			return state;	
 	}
