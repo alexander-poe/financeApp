@@ -1,5 +1,5 @@
 const _getUserData = 'http://localhost:8080/userfinance'
-const addPayment = 'http://localhost:8080/addpayment'
+const _addPayment = 'http://localhost:8080/addpayment'
 
 export const getUserSuccess = data => ({
 	type: 'get_user_success',
@@ -16,7 +16,7 @@ export const getUserData = data => dispatch => {
 }
 
 export const addPayment = (essen, flex, lts) => {
-	return fetch(addPayment,
+	return fetch(_addPayment,
 		{
 			method: "POST",
 			body: JSON.stringify({

@@ -1,6 +1,7 @@
-import React from 'react';
-import Swiper from 'react-native-swiper';
-import MainPageInput from './mainpageinput';
+import React from 'react'
+import Swiper from 'react-native-swiper'
+import MainPageInput from './mainpageinput'
+import Sliders from './slider'
 import {
   View,
   Text,
@@ -60,6 +61,8 @@ class Home extends React.Component {
           </View>
           <View style={this.viewStyle()}>
             <TitleText label="MainPage" />
+            <Sliders />
+            <MainPageInput />
           </View>
           <View style={this.viewStyle()}>
             <TitleText label="Archive" />
