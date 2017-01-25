@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import Header from './src/components/header';
-import Sliders from './src/components/slider';
-import MainPageInput from './src/components/mainpageinput';
-import Home from './src/components/swiper';
-import Test from './src/components/reducertest';
-import { Provider } from 'react-redux';
-import store from './src/store';
+import React, { Component } from 'react'
+import Header from './src/components/header'
+import Sliders from './src/components/slider'
+import MainPageInput from './src/components/mainpageinput'
+import Home from './src/components/swiper'
+import Test from './src/components/reducertest'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
+import reducers from './src/reducers/reducers'
 import {
   AppRegistry,
   StyleSheet,
@@ -14,6 +16,10 @@ import {
   Image
 } from 'react-native';
 
+
+ 
+
+    const store = createStore(reducers, {}, applyMiddleware(thunk));
 export default class FinanceApp extends React.Component {
   render() {
     return (

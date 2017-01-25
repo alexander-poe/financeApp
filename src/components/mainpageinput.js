@@ -25,8 +25,8 @@ class MainPageInput extends React.Component {
 		let essen = payment * .5
 		let flex = payment * .3
 		let lts = payment * .2
-		this.props.dispatch(actions.addPayment(essen, flex, lts))
 		console.log(payment, 'poop', nextPay)
+		this.props.dispatch(actions.addPayment(essen, flex, lts))
 	}
 	render() {
 		const { viewStyle, textStyle } = styles;

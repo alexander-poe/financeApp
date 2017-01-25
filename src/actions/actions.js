@@ -15,9 +15,16 @@ export const getUserData = data => dispatch => {
 		})
 }
 
+export const addPaymentSuccess = data => {
+	type: 'add_payment_success',
+	data
+}
+
+
 export const addPayment = (essen, flex, lts) => {
-	console.log(essen)
-	return fetch(_addPayments,
+  return dispatch => {
+  	console.log(essen)
+  	return fetch(_addPayments,
 		{
 			method: "POST",
 			body: JSON.stringify({
@@ -25,9 +32,10 @@ export const addPayment = (essen, flex, lts) => {
 				flex,
 				lts
 			}),
-			headers: {"Content-Type" : "application/json"}
+			headers: { "Content-Type" : "application/json" }
 		}).then(res => {
-			console.log(res,' vagina')
+
+			console.log(res)
 			if (res.status >= 300) {
 				throw new Error(res.statusText)	
 			} 
@@ -37,6 +45,7 @@ export const addPayment = (essen, flex, lts) => {
 			console.log('post success')
 		}).catch(e => {
 			console.error('actions ap: ', e)
-		})		
+		})	
 }
+} 
 
