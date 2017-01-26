@@ -15,6 +15,24 @@ app.get('/userfinance', (req, res) => {
 		return res.status(200).json({money})
 	})
 })
+app.get('/getalluserfinance', (req, res) => {
+	knex('userdata').select('essen', 'flex', 'lts', 'expdate', 'currentdate').then((money) => {
+		return res.status(200).json({money})
+	})
+})
+app.post('/envelopes', (req, res) => {
+	knex.insert({
+		title: req.body.title,
+		totalamount: req.body.totalamount,
+		currentamount: req.body.currentamount,
+		resetdate: req.body.resetdate
+	}).into('envelopes').then(id => {
+		return res.status(201).json({})
+	}).catch(e => {
+		console.error(e)
+		res.sendStatus(500)
+	})
+})
 app.post('/addpayments', (req, res) => {
 	let today = new Date();
 	let dd = today.getDate();
@@ -33,23 +51,58 @@ app.post('/addpayments', (req, res) => {
 		essen: req.body.essen,
 		flex: req.body.flex,
 		lts: req.body.lts,
-		expdate: today,
+		expdate: req.body.expdate,
 		currentdate: today
 	}).into('userdata').then(dog => {
-		return res.status(201).json({dog})
+		return res.status(201).json({})
 	}).catch(e => {
 		console.error(e)
 		res.sendStatus(500)
 	})
 
 })
+app.put('/envelope', (req, res) => {
+	knex('envelopes').where({
+		id: 2
+	}).update({
+		currentamount: req.body.currentamount
+	}).then(id => {
+		return res.json({})
+	}).catch(e => {
+		console.error(e);
+	})
+})
+
+app.put('/envelopedate', (req, res) => {
+	knex('envelopes').where({
+		id: 2
+	}).update({
+		resetdate: req.body.resetdate
+	}).then(id => {
+		return res.json({})
+	}).catch(e => {
+		console.error(e);
+	})
+})
+
+app.delete('/envelope', (req, res) => {
+	knex('envelopes').where({
+		id: req.body.id
+	}).del().then(id => {
+		return res.json({})
+	}).catch(e => {
+		console.error(e)
+		res.sendStatus(500)
+	})
+})
+
 app.put('/userfinanceflex', (req, res) => {
 	knex('userdata').where({
 		id: 2
 	}).update({
 		flex: req.body.flex
 	}).then(id => {
-		return res.json()
+		return res.json({})
 	}).catch(e => {
 		console.error(e)
 	})

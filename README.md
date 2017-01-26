@@ -6,3 +6,20 @@ CREATE TABLE IF NOT EXISTS UserData (
 	expDate text not null,
 	currentDate text not null
 )
+
+CREATE TABLE IF NOT EXISTS Envelopes (
+	id serial primary key,
+	title text not null,
+	totalAmount text not null,
+	currentAmount text not null,
+	resetDate text not null
+)
+
+CREATE TABLE IF NOT EXISTS SavingsGoal (
+	id serial primary key,
+	title text not null,
+	totalAmount text not null,
+	currentAmount text not null,
+	resetDate text not null,
+    status text not null
+)
