@@ -1,7 +1,10 @@
 import React from 'react'
 import Swiper from 'react-native-swiper'
 import MainPageInput from './mainpageinput'
+import { connect } from 'react-redux'
 import Sliders from './slider'
+import * as actions from '../actions/actions'
+import TitleText from './presentational/titletext'
 import {
   View,
   Text,
@@ -19,18 +22,11 @@ var styles = StyleSheet.create({
   }
 })
 
-class TitleText extends React.Component {
-  render() {
-    return (
-      <Text style={{ fontSize: 48, color: 'white' }}>
-        {this.props.label}
-      </Text>
-    )
-  }
-}
-
 class Home extends React.Component {
-
+  constructor(props) {
+    super(props);
+    
+  }
   viewStyle() {
     return {
       flex: 1,
@@ -38,6 +34,9 @@ class Home extends React.Component {
       justifyContent: 'center',
       alignItems: 'center',
     }
+  }
+  componentDidMount() {
+    // this.props.dispatch(actions.getUserData())
   }
   //so ill use this as the parent component, then render other components
   //in different views
@@ -77,4 +76,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default connect()(Home);

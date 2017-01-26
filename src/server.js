@@ -11,7 +11,7 @@ const knex = require('knex')({
 })
 app.use(bodyParser.json());
 app.get('/userfinance', (req, res) => {
-	knex('userdata').select('essen', 'flex', 'lts', 'expdate', 'currentdate').then((money) => {
+	knex('userdata').where({id: 1}).select('essen', 'flex', 'lts', 'expdate', 'currentdate').then((money) => {
 		return res.status(200).json({money})
 	})
 })

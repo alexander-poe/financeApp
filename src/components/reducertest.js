@@ -12,8 +12,7 @@ class Test extends React.Component {
 		
 	}
 	componentDidMount() {
-		console.log('sport')
-		this.props.dispatch(actions.getDataSuccess());
+		this.props.dispatch(actions.getUserData())
 	}
 	render() {
 		return (
@@ -22,10 +21,11 @@ class Test extends React.Component {
 	}
 }
 
-const mapStateToProps = state => {
-	console.log('test:', state)
-	return {flex: state.flex}
-};
+const mapStateToProps = (state, props) => ({
+	essen: state.essen,
+	flex: state.flex,
+	lts: state.lts
+});
 
 
 export default connect(mapStateToProps)(Test);

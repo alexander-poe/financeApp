@@ -18,7 +18,7 @@ export const getUserData = (data) => {
 			.catch(e => {
 				console.error('actions gud: ', e)
 			})
-}
+    }
 }
 
 export const addPaymentSuccess = data => {

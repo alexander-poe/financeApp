@@ -21,7 +21,7 @@ class MainPageInput extends React.Component {
 	//keeping track of reset date
 	componentDidMount() {
 		this.props.dispatch(actions.getUserData())
-		console.log(this.props)
+		console.log('mainpageinput', this.props.essen)
 	}
 	submitData() {
 		let nextPay = this.state.nextPay

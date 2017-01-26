@@ -19,6 +19,7 @@ class Sliders extends React.Component {
     }
   }
   sendEssen() {
+    console.log('sE', this.props.essen)
     this.props.dispatch(actions.updateEssen(this.state.essen))
   }
   sendFlex() {
@@ -32,7 +33,7 @@ class Sliders extends React.Component {
       <View style={styles.container}>
         <Slider
           step={1}
-          value={200}
+          value={2}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onSlidingComplete={ this.sendEssen.bind(this) }
