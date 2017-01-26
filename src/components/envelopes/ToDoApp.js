@@ -9,7 +9,7 @@ class ToDoApp extends React.Component {
         return (
             <NavigatorIOS
                 style={styles.navigator}
-                initialRoute={{component: ToDoListContainer, title: 'TO DOs'}}/>
+                initialRoute={{component: ToDoListContainer, title: 'Envelopes'}}/>
         );
     }
 }

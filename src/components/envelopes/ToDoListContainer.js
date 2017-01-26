@@ -3,15 +3,15 @@ var styles = require('./styles/styles');
 import React from 'react'
 var ToDoList = require('./ToDoList');
 var ToDoEdit = require('./ToDoEdit');
-import { Text, View, ListView, TouchableHighlight, AlertIOS } from 'react-native';
-
+import { Text, View, ListView, TouchableHighlight, AlertIOS } from 'react-native'
+import Sliders from '../slider'
 class ToDoContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             items: [
-                { txt: 'Learn react native', complete: false },
-                { txt: 'Make a to-do app', complete: true }
+                { txt: 'Rent', cost: '1000', date: '11/11/1111', complete: false },
+                { txt: 'Auto', cost: '1000', date: '11/11/1111', complete: true }
             ]
         };
         this.alertMenu = this.alertMenu.bind(this);
