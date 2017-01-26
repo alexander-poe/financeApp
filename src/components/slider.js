@@ -36,27 +36,27 @@ class Sliders extends React.Component {
           minimumValue={ 0 }
           maximumValue={ 200 }
           onSlidingComplete={ this.sendEssen.bind(this) }
-          onValueChange={(value) => this.setState({value})}
+          onValueChange={ (essen) => this.setState({ essen }) }
         />
-          <Text>Essentials: $ { this.state.value }</Text>
+          <Text>Essentials: ${ this.state.value }</Text>
         <Slider
           step={1}
           value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onSlidingComplete={ this.sendFlex.bind(this) }
-          onValueChange={(value2) => this.setState({value2})} 
+          onValueChange={(flex) => this.setState({ flex })} 
         />
-          <Text>Flexible: $ { this.state.value2 }</Text>
+          <Text>Flexible: ${ this.state.flex }</Text>
         <Slider
           step={1}
           value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onSlidingComplete={ this.sendLts.bind(this) }
-          onValueChange={(value3) => this.setState({value3})} 
+          onValueChange={(lts) => this.setState({ lts })} 
         />
-            <Text>Long-Term: $ { this.state.value3 }</Text>
+            <Text>Long-Term: ${ this.state.lts }</Text>
       </View>
     );
   }
