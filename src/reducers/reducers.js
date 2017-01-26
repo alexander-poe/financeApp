@@ -21,7 +21,26 @@ const reducer = (state=initState, action) => {
 				lts: action.data.money[0].lts,
 				expdate: action.data.money[0].expdate,
 				currentData: action.data.money[0].currentData
-			};	
+			};
+		case 'get_savings_goal_success' :
+			console.log(action.goals)
+			return {
+				...state,
+				title: action.data.goal[0].title,
+				totalamount: action.data.goal[0].totalamount,
+			 	currentamount: action.data.goal[0].totalamount,
+			 	datedesired: action.data.goal[0].totalamount,
+			 	status: action.data.goal[0].status
+			};
+		case 'get_envelope_success' :
+			console.log(action.env)
+			return {
+				...state,
+				title: action.env.env[0].title,
+				totalamount: action.env.env[0].totalamount,
+				currentamount: action.env.env[0].currentamount,
+				resetdate: action.env.env[0].resetdate
+			};		
 		default : 
 			return state;	
 	}

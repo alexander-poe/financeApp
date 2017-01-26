@@ -20,6 +20,16 @@ app.get('/getalluserfinance', (req, res) => {
 		return res.status(200).json({money})
 	})
 })
+app.get('/envelopes', (req, res) => {
+	knex('envelopes').select('title', 'totalamount', 'currentamount', 'resetdate').then((env) => {
+		return res.status(200).json({env})
+	})
+})
+app.get('/savingsgoal', (req, res) => {
+	knex('savingsgoal').select('title', 'totalamount', 'currentamount', 'datedesired', 'status').then((data) => {
+		return res.status(200).json({data})
+	})
+})
 app.post('/envelopes', (req, res) => {
 	knex.insert({
 		title: req.body.title,
