@@ -23,17 +23,17 @@ const reducer = (state=initState, action) => {
 				currentData: action.data.money[0].currentData
 			};
 		case 'get_savings_goal_success' :
-			console.log(action.goals)
+			console.log('savings goal' )
 			return {
 				...state,
-				title: action.data.goal[0].title,
-				totalamount: action.data.goal[0].totalamount,
-			 	currentamount: action.data.goal[0].totalamount,
-			 	datedesired: action.data.goal[0].totalamount,
-			 	status: action.data.goal[0].status
+				title: action.data.data[0].title,
+				totalamount: action.data.data[0].totalamount,
+			 	currentamount: action.data.data[0].totalamount,
+			 	datedesired: action.data.data[0].totalamount,
+			 	status: action.data.data[0].status
 			};
-		case 'get_envelope_success' :
-			console.log(action.env)
+		case 'get_envelopes_success' :
+			console.log('env',action.env.env[0])
 			return {
 				...state,
 				title: action.env.env[0].title,

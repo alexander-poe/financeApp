@@ -1,5 +1,3 @@
-
-
 export const getUserSuccess = data => ({
 	type: 'get_user_success',
 	data
@@ -19,9 +17,9 @@ export const getUserData = (data) => {
 			})
     }
 }
-export const getSavingsGoalSuccess = goals => ({
+export const getSavingsGoalSuccess = data => ({
 	type: 'get_savings_goal_success',
-	goals
+	data
 })
 export const getSavingsGoal = (data) => {
 	return dispatch =>  {
@@ -29,9 +27,26 @@ export const getSavingsGoal = (data) => {
 			.then(res => {
 				return res.json()
 			}).then(res => {
-				console.log(res)
 				console.log('get success', res)
 				return dispatch(getSavingsGoalSuccess(res))
+			})
+			.catch(e => {
+				console.error('actions ge: ', e)
+			})
+    }
+}
+export const getEnvelopesSuccess = env => ({
+	type: 'get_envelopes_success',
+	env
+})
+export const getEnvelopes = (env) => {
+	return dispatch =>  {
+		return fetch('http://localhost:8080/envelopes')
+			.then(res => {
+				return res.json()
+			}).then(res => {
+				console.log('get env success', res)
+				return dispatch(getEnvelopesSuccess(res))
 			})
 			.catch(e => {
 				console.error('actions ge: ', e)
@@ -63,14 +78,15 @@ export const addSavingsGoal = (title, totalamount, currentamount, datedesired, s
 		})	
     }
 } 
-export const updateSavingsBal = (id, money) => {
+export const updateSavingsBal = (id, currentamount) => {
+	console.log(id, currentamount);
 	return dispatch => {
 		return fetch('http://localhost:8080/savingsgoaladd',
 		{
 			method: "PUT",
 			body: JSON.stringify({
 				id,
-				money
+				currentamount
 			}),
 			headers: { "Content-Type" : "application/json" }
 		}).then(res => {
@@ -86,14 +102,14 @@ export const updateSavingsBal = (id, money) => {
 
 	}
 }
-export const updateSavingsDate = (id, date) => {
+export const updateSavingsDate = (id, datedesired) => {
 	return dispatch => {
 		return fetch('http://localhost:8080/savingsgoaldate',
 		{
 			method: "PUT",
 			body: JSON.stringify({
 				id,
-				date
+				datedesired
 			}),
 			headers: { "Content-Type" : "application/json" }
 		}).then(res => {
@@ -109,25 +125,7 @@ export const updateSavingsDate = (id, date) => {
 
 	}
 }
-export const getEnvelopesSuccess = env => ({
-	type: 'get_envelopes_success',
-	env
-})
-export const getEnvelopes = (env) => {
-	return dispatch =>  {
-		return fetch('http://localhost:8080/envelopes')
-			.then(res => {
-				return res.json()
-			}).then(res => {
-				console.log(res)
-				console.log('get success', res)
-				return dispatch(getEnvelopesSuccess(res))
-			})
-			.catch(e => {
-				console.error('actions ge: ', e)
-			})
-    }
-}
+
 export const addEnvelopes = (title, totalamount, currentamount, resetdate) => {
   return dispatch => {
   	return fetch('http://localhost:8080/envelopes',
@@ -152,14 +150,14 @@ export const addEnvelopes = (title, totalamount, currentamount, resetdate) => {
 		})	
     }
 } 
-export const updateEnvBal = (id, money) => {
+export const updateEnvBal = (id, currentamount) => {
 	return dispatch => {
 		return fetch('http://localhost:8080/envelope',
 		{
 			method: "PUT",
 			body: JSON.stringify({
 				id,
-				money
+				currentamount
 			}),
 			headers: { "Content-Type" : "application/json" }
 		}).then(res => {
@@ -175,14 +173,14 @@ export const updateEnvBal = (id, money) => {
 
 	}
 }
-export const updateEnvDate = (id, date) => {
+export const updateEnvDate = (id, resetdate) => {
 	return dispatch => {
 		return fetch('http://localhost:8080/envelopedate',
 		{
 			method: "PUT",
 			body: JSON.stringify({
 				id,
-				date
+				resetdate
 			}),
 			headers: { "Content-Type" : "application/json" }
 		}).then(res => {

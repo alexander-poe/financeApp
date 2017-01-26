@@ -13,10 +13,11 @@ class Test extends React.Component {
 	}
 	componentDidMount() {
 		this.props.dispatch(actions.getUserData())
+		this.props.dispatch(actions.updateEnvBal('1', '2322'));
 	}
 	render() {
 		return (
-			<Text> {this.props.flex} </Text>
+			<Text> {this.props.title} </Text>
 			)
 	}
 }
@@ -24,7 +25,8 @@ class Test extends React.Component {
 const mapStateToProps = (state, props) => ({
 	essen: state.essen,
 	flex: state.flex,
-	lts: state.lts
+	lts: state.lts,
+	title: state.title
 });
 
 

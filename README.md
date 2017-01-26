@@ -20,6 +20,6 @@ CREATE TABLE IF NOT EXISTS SavingsGoal (
 	title text not null,
 	totalAmount text not null,
 	currentAmount text not null,
-	resetDate text not null,
+	dateDesired text not null,
     status text not null
 )

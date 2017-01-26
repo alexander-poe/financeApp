@@ -59,7 +59,7 @@ app.post('/savingsgoal', (req, res) => {
 })
 app.put('/savingsgoaladd', (req, res) => {
 	knex('savingsgoal').where({
-		id: 2
+		id: req.body.id
 	}).update({
 		currentamount: req.body.currentamount
 	}).then(id => {
@@ -71,7 +71,7 @@ app.put('/savingsgoaladd', (req, res) => {
 
 app.put('/savingsgoaldate', (req, res) => {
 	knex('savingsgoal').where({
-		id: 2
+		id: req.body.id
 	}).update({
 		datedesired: req.body.datedesired
 	}).then(id => {
