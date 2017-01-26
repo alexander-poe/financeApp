@@ -11,16 +11,30 @@ const knex = require('knex')({
 })
 app.use(bodyParser.json());
 app.get('/userfinance', (req, res) => {
-	knex('userData').select('*').then((money) => {
+	knex('userdata').select('essen', 'flex', 'lts', 'expdate', 'currentdate').then((money) => {
 		return res.status(200).json({money})
 	})
 })
 app.post('/addpayments', (req, res) => {
-	console.log(req.body)
+	let today = new Date();
+	let dd = today.getDate();
+	let mm = today.getMonth()+1;
+	let yyyy = today.getFullYear();
+	if(dd<10) {
+    	dd='0'+dd
+	} 
+	if(mm<10) {
+   		mm='0'+mm
+	} 
+	today = mm+'/'+dd+'/'+yyyy;
+
+	console.log(today);
 	knex.insert({
 		essen: req.body.essen,
 		flex: req.body.flex,
-		lts: req.body.lts
+		lts: req.body.lts,
+		expdate: today,
+		currentdate: today
 	}).into('userdata').then(dog => {
 		return res.status(201).json({dog})
 	}).catch(e => {
@@ -29,9 +43,40 @@ app.post('/addpayments', (req, res) => {
 	})
 
 })
-app.put('/editpayments', (req, res) => {
-
+app.put('/userfinanceflex', (req, res) => {
+	knex('userdata').where({
+		id: 2
+	}).update({
+		flex: req.body.flex
+	}).then(id => {
+		return res.json()
+	}).catch(e => {
+		console.error(e)
+	})
 })
+app.put('/userfinancelts', (req, res) => {
+	knex('userdata').where({
+		id: 2
+	}).update({
+		lts: req.body.lts
+	}).then(id => {
+		return res.json()
+	}).catch(e => {
+		console.error(e)
+	})
+})
+app.put('/userfinanceessen', (req, res) => {
+	knex('userdata').where({
+		id: 2
+	}).update({
+		essen: req.body.essen
+	}).then(id => {
+		return res.json()
+	}).catch(e => {
+		console.error(e)
+	})
+})
+
 
 app.delete('/deletepaymententry', (req, res) => {
 

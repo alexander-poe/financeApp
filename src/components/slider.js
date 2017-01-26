@@ -1,6 +1,8 @@
 'use strict';
-import React from 'react';
-import Slider from 'react-native-slider';
+import React from 'react'
+import { connect } from 'react-redux'
+import Slider from 'react-native-slider'
+import * as actions from '../actions/actions'
 import {
   StyleSheet,
   View,
@@ -11,18 +13,20 @@ class Sliders extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 150,
-      value2: 1,
-      value3: 1
+      essen: 1,
+      flex: 1,
+      lts: 1
     }
   }
-
-  //for sliders onSlidingComplete prop will be used to dispatch
-  //an action and update the store, or current bank.
-
-  //note: how can we make the slider start at a specific point?
-
-
+  sendEssen() {
+    this.props.dispatch(actions.updateEssen(this.state.essen))
+  }
+  sendFlex() {
+    this.props.dispatch(actions.updateFlex(this.state.flex))
+  }
+  sendLts() {
+    this.props.dispatch(actions.updateLts(this.state.lts))
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -31,22 +35,28 @@ class Sliders extends React.Component {
           value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
-          onValueChange={(value) => this.setState({value})} />
-        <Text>Essentials: $ { this.state.value }</Text>
-         <Slider
+          onSlidingComplete={ this.sendEssen.bind(this) }
+          onValueChange={(value) => this.setState({value})}
+        />
+          <Text>Essentials: $ { this.state.value }</Text>
+        <Slider
           step={1}
           value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
-          onValueChange={(value2) => this.setState({value2})} />
-        <Text>Flexible: $ { this.state.value2 }</Text>
-         <Slider
+          onSlidingComplete={ this.sendFlex.bind(this) }
+          onValueChange={(value2) => this.setState({value2})} 
+        />
+          <Text>Flexible: $ { this.state.value2 }</Text>
+        <Slider
           step={1}
           value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
-          onValueChange={(value3) => this.setState({value3})} />
-        <Text>Long-Term: $ { this.state.value3 }</Text>
+          onSlidingComplete={ this.sendLts.bind(this) }
+          onValueChange={(value3) => this.setState({value3})} 
+        />
+            <Text>Long-Term: $ { this.state.value3 }</Text>
       </View>
     );
   }
@@ -62,4 +72,9 @@ var styles = StyleSheet.create({
   },
 });
 
-export default Sliders;
+const mapStateToProps = (state, props) => ({
+  essen: state.essen,
+  flex: state.flex,
+  lts: state.lts
+});
+export default connect(mapStateToProps)(Sliders);

@@ -15,7 +15,9 @@ const reducer = (state=initState, action) => {
 				...state, 
 				essen: action.data.essen,
 				flex: action.data.flex,
-				lts: action.data.lts
+				lts: action.data.lts,
+				expdate: action.data.expdate,
+				currentData: action.data.currentData
 			}	
 		default : 
 			return state;	

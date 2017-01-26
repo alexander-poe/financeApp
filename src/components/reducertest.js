@@ -13,7 +13,7 @@ class Test extends React.Component {
 	}
 	componentDidMount() {
 		console.log('sport')
-		this.props.dispatch(actions.getDataSuccess('dog'));
+		this.props.dispatch(actions.getDataSuccess());
 	}
 	render() {
 		return (

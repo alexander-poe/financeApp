@@ -19,13 +19,16 @@ class MainPageInput extends React.Component {
 	//this will dispatch information to the backend
 	//on the backend all the alogrithms will be set up for
 	//keeping track of reset date
+	componentDidMount() {
+		this.props.dispatch(actions.getUserData())
+		console.log(this.props)
+	}
 	submitData() {
 		let nextPay = this.state.nextPay
 		let payment = this.state.payment
-		let essen = payment * .5
-		let flex = payment * .3
-		let lts = payment * .2
-		console.log(payment, 'poop', nextPay)
+		let essen = Math.floor(payment * .5)
+		let flex = Math.floor(payment * .3)
+		let lts = Math.floor(payment * .2)
 		this.props.dispatch(actions.addPayment(essen, flex, lts))
 	}
 	render() {
@@ -71,6 +74,6 @@ const styles = {
 const mapStateToProps = (state, props) => ({
 	essen: state.essen,
 	flex: state.flex,
-	lts: state.l
+	lts: state.lts
 });
 export default connect(mapStateToProps)(MainPageInput);	
