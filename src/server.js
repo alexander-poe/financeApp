@@ -33,6 +33,65 @@ app.post('/envelopes', (req, res) => {
 		res.sendStatus(500)
 	})
 })
+app.post('/savingsgoal', (req, res) => {
+	knex.insert({
+		title: req.body.title,
+		totalamount: req.body.totalamount,
+		currentamount: req.body.currentamount,
+		datedesired: req.body.datedesired,
+		status: req.body.status
+	}).into('savingsgoal').then(id => {
+		return res.status(201).json({})
+	}).catch(e => {
+		console.error(e);
+		res.sendStatus(500);
+	})
+})
+app.put('/savingsgoaladd', (req, res) => {
+	knex('savingsgoal').where({
+		id: 2
+	}).update({
+		currentamount: req.body.currentamount
+	}).then(id => {
+		return res.json({})
+	}).catch(e => {
+		console.error(e);
+	})
+})
+
+app.put('/savingsgoaldate', (req, res) => {
+	knex('savingsgoal').where({
+		id: 2
+	}).update({
+		datedesired: req.body.datedesired
+	}).then(id => {
+		return res.json({})
+	}).catch(e => {
+		console.error(e);
+	})
+})
+
+app.put('/savingsgoalstatus', (req, res) => {
+	knex('savingsgoal').where({
+		id: 2
+	}).update({
+		status: req.body.status
+	}).then(id => {
+		return res.json({})
+	}).catch(e => {
+		console.error(e);
+	})
+})
+app.delete('/savingsgoal', (req, res) => {
+	knex('savingsgoal').where({
+		id: req.body.id
+	}).del().then(id => {
+		return res.json({})
+	}).catch(e => {
+		console.error(e)
+		res.sendStatus(500)
+	})
+})
 app.post('/addpayments', (req, res) => {
 	let today = new Date();
 	let dd = today.getDate();
@@ -53,7 +112,7 @@ app.post('/addpayments', (req, res) => {
 		lts: req.body.lts,
 		expdate: req.body.expdate,
 		currentdate: today
-	}).into('userdata').then(dog => {
+	}).into('userdata').then(id => {
 		return res.status(201).json({})
 	}).catch(e => {
 		console.error(e)
@@ -129,8 +188,6 @@ app.put('/userfinanceessen', (req, res) => {
 		console.error(e)
 	})
 })
-
-
 app.delete('/deletepaymententry', (req, res) => {
 
 })
