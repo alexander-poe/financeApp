@@ -4,6 +4,7 @@ import Sliders from './src/components/slider'
 import MainPageInput from './src/components/mainpageinput'
 import Home from './src/components/home'
 import Test from './src/components/reducertest'
+import ToDoApp from './src/components/envelopes/ToDoApp'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
@@ -24,7 +25,7 @@ export default class FinanceApp extends React.Component {
   render() {
     return (
       <Provider store={ store }>
-        <Home />
+        <ToDoApp />
       </Provider>  
     );
   }
