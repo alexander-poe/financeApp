@@ -36,6 +36,9 @@ class Sliders extends React.Component {
           value={2}
           minimumValue={ 0 }
           maximumValue={ 200 }
+              minimumTrackTintColor={'rgb(248,248,248)'}
+          maximumTrackTintColor={'rgb(248,248,248)'}
+          thumbTintColor={'pink'}
           onSlidingComplete={ this.sendEssen.bind(this) }
           onValueChange={ (essen) => this.setState({ essen }) }
         />
@@ -45,6 +48,9 @@ class Sliders extends React.Component {
           value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
+          minimumTrackTintColor={'rgb(248,248,248)'}
+          maximumTrackTintColor={'rgb(248,248,248)'}
+          thumbTintColor={'pink'}
           onSlidingComplete={ this.sendFlex.bind(this) }
           onValueChange={(flex) => this.setState({ flex })} 
         />
@@ -54,6 +60,9 @@ class Sliders extends React.Component {
           value={200}
           minimumValue={ 0 }
           maximumValue={ 200 }
+              minimumTrackTintColor={'rgb(248,248,248)'}
+          maximumTrackTintColor={'rgb(248,248,248)'}
+          thumbTintColor={'pink'}
           onSlidingComplete={ this.sendLts.bind(this) }
           onValueChange={(lts) => this.setState({ lts })} 
         />
@@ -71,6 +80,7 @@ var styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
   },
+
 });
 
 const mapStateToProps = (state, props) => ({

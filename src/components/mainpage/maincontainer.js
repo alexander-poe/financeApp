@@ -73,12 +73,14 @@ class MainContainer extends React.Component {
 
     render() {
     if (this.props.data !== undefined) {
-        console.log('if')
-        var array = this.props.data.map(function(obj) {
-            return obj.essen;
+        var array = this.props.data.map(function(item) {
+            console.log(item.essen)
+            const essen = item.essen
+            const flex = item.flex
+            return item;
         })
+
     }
-    console.log('81', array)
         return (
             <View style={{flex:1}}>
                 <MainList

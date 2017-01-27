@@ -29,15 +29,12 @@ class SavingsSlider extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Slider
-          step={1}
-          value={parseInt(this.props.bal)}
-          minimumValue={ 0 }
-          maximumValue={ this.props.cost }
-          onSlidingComplete={ this.sendEssen.bind(this) }
-          onValueChange={ (essen) => this.setState({ essen }) }
-        />
-          <Text>Amount till reached: ${ this.props.bal }</Text>
+          <Text> 
+
+            { this.props.bal } / { this.props.cost } {'\n'} 
+
+          </Text> 
+
       </View>    
     );
   }

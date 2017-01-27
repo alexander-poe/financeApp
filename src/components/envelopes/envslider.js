@@ -29,16 +29,15 @@ class EnvSlider extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Slider
-          step={1}
-          value={parseInt(this.props.bal)}
-          minimumValue={ 0 }
-          maximumValue={ this.props.cost }
-          onSlidingComplete={ this.sendEssen.bind(this) }
-          onValueChange={ (essen) => this.setState({ essen }) }
-        />
-          <Text>Amount till reached: ${ this.props.cost - this.props.bal}</Text>
-      </View>    
+        <View style={styles.styless}>
+          <Text style={styles.textcool}>
+                { this.props.cost - this.props.bal}/{this.props.cost} {'\n'}
+                exp: {this.props.date}
+
+          </Text>
+        </View>      
+      </View>
+
     );
   }
 };
@@ -50,7 +49,26 @@ var styles = StyleSheet.create({
     marginRight: 10,
     alignItems: 'stretch',
     justifyContent: 'center',
+   
   },
+  thumbStyle: {
+    backgroundColor: 'pink'
+  },
+  styless: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: 'pink',
+    height: 220,
+    borderRadius: 10,
+    width: 380
+
+  },
+  textcool: {
+    alignSelf: 'center',
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold'
+  } 
 });
 
 const mapStateToProps = (state, props) => ({

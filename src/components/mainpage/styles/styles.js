@@ -62,6 +62,9 @@ var styles = StyleSheet.create({
         height: 1,
         marginLeft: 0,
         marginRight: 0,
+    },
+    usermain: {
+
     }
 
 });

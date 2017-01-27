@@ -28,11 +28,9 @@ class EnvelopeListItem extends React.Component {
                     <View style={styles.container}>
                         <Text
                             style={[styles.txt, item.complete && styles.completed]}>
-                            Title: {item.txt} {"\n"}
-                            Cost: ${item.cost} {"\n"}
-                            Date: {item.date} {"\n"}
+                              {item.txt} {"\n"}
                         </Text>
-                        <EnvSlider cost={item.cost} bal={item.bal} />
+                        <EnvSlider date={item.date} cost={item.cost} bal={item.bal} />
                      
                     </View>
                 </TouchableHighlight>

@@ -13,9 +13,9 @@ class Sliders extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      essen: 1,
-      flex: 1,
-      lts: 1
+      essen: 200,
+      flex: 200,
+      lts: 200
     }
   }
   sendEssen() {
@@ -31,37 +31,52 @@ class Sliders extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>Essentials: { this.state.essen } / {200} </Text>
         <Slider
           step={1}
-          value={2}
+          value={200}
+          style={styles.styless}
+          thumbTouchSize={{width: 20, height: 20}}
+          minimumTrackTintColor={'rgb(248,248,248)'}
+          maximumTrackTintColor={'rgb(248,248,248)'}
+          thumbTintColor={'pink'}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onSlidingComplete={ this.sendEssen.bind(this) }
-          onValueChange={ (essen) => this.setState({ essen }) }
+          onValueChange={ (essen) => this.setState({ essen: essen }) }
         />
-          <Text>Essentials: ${ this.state.value }</Text>
+        <Text>Flexible: { this.state.flex } / {200} </Text>  
+          
         <Slider
           step={1}
+          style={styles.styless}
           value={200}
+          minimumTrackTintColor={'rgb(248,248,248)'}
+          maximumTrackTintColor={'rgb(248,248,248)'}
+          thumbTintColor={'pink'}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onSlidingComplete={ this.sendFlex.bind(this) }
-          onValueChange={(flex) => this.setState({ flex })} 
+          onValueChange={(flex) => this.setState({ flex: flex })} 
         />
-          <Text>Flexible: ${ this.state.flex }</Text>
+         <Text>Long-Term: { this.state.lts } / {200}</Text>
         <Slider
+          style={styles.styless}
           step={1}
-          value={200}
+          value={200}  
+          minimumTrackTintColor={'rgb(248,248,248)'}
+          maximumTrackTintColor={'rgb(248,248,248)'}
+          thumbTintColor={'pink'}
           minimumValue={ 0 }
           maximumValue={ 200 }
           onSlidingComplete={ this.sendLts.bind(this) }
-          onValueChange={(lts) => this.setState({ lts })} 
+          onValueChange={(lts) => this.setState({ lts: lts })} 
         />
-            <Text>Long-Term: ${ this.state.lts }</Text>
       </View>
     );
   }
 };
+
 
 var styles = StyleSheet.create({
   container: {
@@ -70,9 +85,27 @@ var styles = StyleSheet.create({
     marginRight: 10,
     alignItems: 'stretch',
     justifyContent: 'center',
+   
   },
-});
+  thumbStyle: {
+    backgroundColor: 'pink'
+  },
+  styless: {
+    flex: 1,
+    justifyContent: 'center',
+   
+    height: 23,
+    borderRadius: 10,
+    width: 380
 
+  },
+  textcool: {
+    alignSelf: 'center',
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold'
+  } 
+});
 const mapStateToProps = (state, props) => ({
   essen: state.essen,
   flex: state.flex,

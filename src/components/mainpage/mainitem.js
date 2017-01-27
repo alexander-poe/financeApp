@@ -21,22 +21,20 @@ class MainItem extends React.Component {
         } 
         today = mm+'/'+dd+'/'+yyyy;
         return (
-            <View>
+            <View style={styles.usermain}>
                 <TouchableHighlight
                     onPress={this.props.onPress}
                     onLongPress={this.props.onLongPress}>
                     <View style={styles.container}>
-                        <Text
-                            style={[styles.txt, item.complete && styles.completed]}>
-                            Total: ${item.cost} {"\n"}
-                            Date: {item.date} {"\n"}
-                            Status: Active
-                        </Text>
                         <Sliders cost={item.cost} bal={item.bal} />
+                        <Text>
+                            11 days left {"\n"}
+                        </Text>
+                        
                      
                     </View>
                 </TouchableHighlight>
-                <View style={styles.hr}/>
+                <View/>
             </View>
         );
     }

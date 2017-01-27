@@ -59,7 +59,7 @@ class EnvelopeContainer extends React.Component {
     openItem(rowData, rowID) {
         this.props.navigator.push({
             title: rowData && rowData.txt || 'New Item',
-            component: ToDoUpdate,
+            component: EnvelopeUpdate,
             passProps: {item: rowData, id: rowID, update: this.updateItem}
         });
     }

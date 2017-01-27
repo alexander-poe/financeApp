@@ -28,16 +28,13 @@ class SavingsItem extends React.Component {
                     <View style={styles.container}>
                         <Text
                             style={[styles.txt, item.complete && styles.completed]}>
-                            Title: {item.txt} {"\n"}
-                            Cost: ${item.cost} {"\n"}
-                            Bal: ${item.bal} {"\n"}
-                            Target Date: {item.date} {"\n"}
+                            {item.txt} {"\n"}
                         </Text>
-                        <SavingsSlider cost={item.cost} bal={item.bal} />
+                        <SavingsSlider date={item.date} cost={item.cost} bal={item.bal} />
                      
                     </View>
                 </TouchableHighlight>
-                <View style={styles.hr}/>
+                <View/>
             </View>
         );
     }

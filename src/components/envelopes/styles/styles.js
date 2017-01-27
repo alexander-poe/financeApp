@@ -50,6 +50,7 @@ var styles = StyleSheet.create({
         fontSize: 18,
         marginLeft: 5,
         marginTop: 2,
+        alignSelf: 'center',
         color: '#222222',
     },
 
@@ -58,7 +59,7 @@ var styles = StyleSheet.create({
     },
 
     hr: {
-        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+
         height: 1,
         marginLeft: 0,
         marginRight: 0,
