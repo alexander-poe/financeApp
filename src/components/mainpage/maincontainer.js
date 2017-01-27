@@ -3,9 +3,13 @@ import styles from './styles/styles'
 import React from 'react'
 import MainList from './mainlist'
 import MainEdit from './mainedit'
+import { connect } from 'react-redux'
+import * as actions from '../../actions/actions'
 import MainUpdate from './mainupdate'
 import { Text, View, ListView, TouchableHighlight, AlertIOS } from 'react-native'
 import Sliders from './sliders'
+
+var data = [];
 class MainContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +25,14 @@ class MainContainer extends React.Component {
         this.openItem = this.openItem.bind(this);
 
     }
+    onComponentDidMount() {
+        this.props.dispatch(actions.getUserData())
+            // .then(() => data = this.props.data.map(function(obj) {
+            //     return obj
+            // }))
 
+
+    }
     alertMenu(rowData, rowID) {
         AlertIOS.alert(
             'Quick Menu',
@@ -61,6 +72,13 @@ class MainContainer extends React.Component {
     }
 
     render() {
+    if (this.props.data !== undefined) {
+        console.log('if')
+        var array = this.props.data.map(function(obj) {
+            return obj.essen;
+        })
+    }
+    console.log('81', array)
         return (
             <View style={{flex:1}}>
                 <MainList
@@ -78,4 +96,11 @@ class MainContainer extends React.Component {
     }
 }
 
-module.exports = MainContainer;
+const mapStateToProps = (state, props) => {
+    console.log('88',state.data)
+    return {
+    data: state.data
+}
+}
+
+export default connect(mapStateToProps)(MainContainer)

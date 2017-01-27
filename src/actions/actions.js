@@ -4,11 +4,10 @@ export const getUserSuccess = data => ({
 })
 export const getUserData = (data) => {
 	return dispatch =>  {
-		return fetch('http://localhost:8080/userfinance')
+		return fetch('http://localhost:8080/getalluserfinance')
 			.then(res => {
 				return res.json()
 			}).then(res => {
-				console.log(res)
 				console.log('get success', res)
 				return dispatch(getUserSuccess(res))
 			})

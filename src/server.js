@@ -18,7 +18,7 @@ app.get('/userfinance', (req, res) => {
 })
 app.get('/getalluserfinance', (req, res) => {
 	knex('userdata').select('essen', 'flex', 'lts', 'expdate', 'currentdate').then((money) => {
-		return res.status(200).json({money})
+		return res.status(200).json(money)
 	})
 })
 app.get('/envelopes', (req, res) => {

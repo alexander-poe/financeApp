@@ -11,6 +11,7 @@ const initState = {
 	};
 
 const reducer = (state=initState, action) => {
+		console.log('redud', action.data)
 	switch (action.type) {
 		case 'get_user_success' :
 			return {
