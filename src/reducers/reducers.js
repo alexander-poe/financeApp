@@ -13,17 +13,13 @@ const initState = {
 const reducer = (state=initState, action) => {
 	switch (action.type) {
 		case 'get_user_success' :
-		    console.log('reducer', action.data.money[0])
 			return {
 				...state, 
-				essen: action.data.money[0].essen,
-				flex: action.data.money[0].flex,
-				lts: action.data.money[0].lts,
-				expdate: action.data.money[0].expdate,
-				currentData: action.data.money[0].currentData
+				data: action.data
+			
 			};
 		case 'get_savings_goal_success' :
-			console.log('savings goal' )
+			console.log('savings goal')
 			return {
 				...state,
 				title: action.data.data[0].title,

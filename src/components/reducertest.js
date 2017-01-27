@@ -13,7 +13,7 @@ class Test extends React.Component {
 	}
 	componentDidMount() {
 		this.props.dispatch(actions.getUserData())
-		this.props.dispatch(actions.updateEnvBal('1', '2322'));
+		this.props.dispatch(actions.updateEnv('1', '2322'));
 	}
 	render() {
 		return (

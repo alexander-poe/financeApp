@@ -1,4 +1,5 @@
 require('babel-polyfill');
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
 const HOST = process.env.HOST;

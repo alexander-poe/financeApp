@@ -1,11 +1,12 @@
 'use strict';
 import styles from './styles/styles'
 import React from 'react'
-import ToDoList from './ToDoList'
-import ToDoEdit from './ToDoEdit'
+import EnvelopeList from './envelopelist'
+import EnvelopeEdit from './envelopeedit'
+import EnvelopeUpdate from './envelopeupdate'
 import { Text, View, ListView, TouchableHighlight, AlertIOS } from 'react-native'
 import Sliders from '../slider'
-class ToDoContainer extends React.Component {
+class EnvelopeContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,9 +19,9 @@ class ToDoContainer extends React.Component {
         this.deleteItem = this.deleteItem.bind(this);
         this.updateItem = this.updateItem.bind(this);
         this.openItem = this.openItem.bind(this);
+        this.addPayment = this.addPayment.bind(this);
 
     }
-
     alertMenu(rowData, rowID) {
         AlertIOS.alert(
             'Quick Menu',
@@ -39,6 +40,10 @@ class ToDoContainer extends React.Component {
         this.setState({items: items})
     }
 
+    addPayment(payment, key) {
+
+    }
+
     updateItem(item, index) {
         var items = this.state.items;
         if (index) {
@@ -50,11 +55,11 @@ class ToDoContainer extends React.Component {
         this.setState({items: items});
         this.props.navigator.pop();
     }
-
+    // create new edit component on 62
     openItem(rowData, rowID) {
         this.props.navigator.push({
             title: rowData && rowData.txt || 'New Item',
-            component: ToDoEdit,
+            component: ToDoUpdate,
             passProps: {item: rowData, id: rowID, update: this.updateItem}
         });
     }
@@ -62,7 +67,7 @@ class ToDoContainer extends React.Component {
     render() {
         return (
             <View style={{flex:1}}>
-                <ToDoList
+                <EnvelopeList
                     items={this.state.items}
                     onPressItem={this.openItem}
                     onLongPressItem={this.alertMenu}/>
@@ -77,4 +82,4 @@ class ToDoContainer extends React.Component {
     }
 }
 
-module.exports = ToDoContainer;
+module.exports = EnvelopeContainer;

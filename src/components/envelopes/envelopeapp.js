@@ -1,17 +1,17 @@
 'use strict';
 var styles = require('./styles/styles');
-var ToDoListContainer = require('./ToDoListContainer');
+var EnvelopeContainer = require('./envelopecontainer');
 import React from 'react'
 import { AppRegistry, NavigatorIOS } from 'react-native'
 
-class ToDoApp extends React.Component {
+class EnvelopeApp extends React.Component {
     render() {
         return (
             <NavigatorIOS
                 style={styles.navigator}
-                initialRoute={{component: ToDoListContainer, title: 'Envelopes'}}/>
+                initialRoute={{component: EnvelopeContainer, title: 'Envelopes'}}/>
         );
     }
 }
 
-export default ToDoApp;
+export default EnvelopeApp;

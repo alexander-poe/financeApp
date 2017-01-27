@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Sliders from './slider'
 import * as actions from '../actions/actions'
 import TitleText from './presentational/titletext'
-import ToDoApp from './envelopes/ToDoApp'
+import EnvelopeApp from './envelopes/envelopeapp'
 import MainApp from './mainpage/mainapp'
 import SavingsApp from './savingsgoal/SavingsApp'
 import {
@@ -64,7 +64,7 @@ class Home extends React.Component {
             <TitleText label="Archive" />
           </View>
         </Swiper>        
-          <ToDoApp />
+          <EnvelopeApp />
       </Swiper>  
 
     )

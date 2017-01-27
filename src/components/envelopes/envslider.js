@@ -37,7 +37,7 @@ class EnvSlider extends React.Component {
           onSlidingComplete={ this.sendEssen.bind(this) }
           onValueChange={ (essen) => this.setState({ essen }) }
         />
-          <Text>Amount till reached: ${ this.props.bal }</Text>
+          <Text>Amount till reached: ${ this.props.cost - this.props.bal}</Text>
       </View>    
     );
   }

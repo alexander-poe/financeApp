@@ -3,6 +3,7 @@ import styles from './styles/styles'
 import React from 'react'
 import MainList from './mainlist'
 import MainEdit from './mainedit'
+import MainUpdate from './mainupdate'
 import { Text, View, ListView, TouchableHighlight, AlertIOS } from 'react-native'
 import Sliders from './sliders'
 class MainContainer extends React.Component {
@@ -10,7 +11,7 @@ class MainContainer extends React.Component {
         super(props);
         this.state = {
             items: [
-                { txt: 'Rent', cost: '1000', bal: '900', date: '11/11/1111', complete: false },
+                { txt: 'Ren', cost: '1000', bal: '900', date: '11/11/1111', complete: false },
                 { txt: 'Auto', cost: '1000', bal: '200', date: '11/11/1111', complete: false }
             ]
         };
@@ -53,8 +54,8 @@ class MainContainer extends React.Component {
 
     openItem(rowData, rowID) {
         this.props.navigator.push({
-            title: rowData && rowData.txt || 'New Item',
-            component: MainEdit,
+            title: 'Fill Up',
+            component: MainUpdate,
             passProps: {item: rowData, id: rowID, update: this.updateItem}
         });
     }

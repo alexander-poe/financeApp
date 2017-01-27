@@ -5,7 +5,7 @@ import { Text, View, TouchableHighlight } from 'react-native';
 import EnvSlider from './envslider'
 
 
-class ToDoListItem extends React.Component {
+class EnvelopeListItem extends React.Component {
     render() {
         var item = this.props.item;
         console.log('item', item)
@@ -42,4 +42,4 @@ class ToDoListItem extends React.Component {
     }
 }
 
-module.exports = ToDoListItem;
+module.exports = EnvelopeListItem;

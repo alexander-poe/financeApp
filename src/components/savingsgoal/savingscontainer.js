@@ -3,6 +3,7 @@ import styles from './styles/styles'
 import React from 'react'
 import SavingsList from './savingslist'
 import SavingsEdit from './savingsedit'
+import SavingsUpdate from './savingsupdate'
 import { Text, View, ListView, TouchableHighlight, AlertIOS } from 'react-native'
 import Sliders from '../slider'
 class SavingsContainer extends React.Component {
@@ -54,7 +55,7 @@ class SavingsContainer extends React.Component {
     openItem(rowData, rowID) {
         this.props.navigator.push({
             title: rowData && rowData.txt || 'New Item',
-            component: SavingsEdit,
+            component: SavingsUpdate,
             passProps: {item: rowData, id: rowID, update: this.updateItem}
         });
     }
