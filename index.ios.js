@@ -27,7 +27,7 @@ export default class FinanceApp extends React.Component {
   render() {
     return (
       <Provider store={ store }>
-        <MainApp />
+        <Home />
       </Provider>  
     );
   }

@@ -28,9 +28,9 @@ class MainItem extends React.Component {
                     <View style={styles.container}>
                         <Text
                             style={[styles.txt, item.complete && styles.completed]}>
-                            Title: {item.txt} {"\n"}
-                            Cost: ${item.cost} {"\n"}
+                            Total: ${item.cost} {"\n"}
                             Date: {item.date} {"\n"}
+                            Status: Active
                         </Text>
                         <Sliders cost={item.cost} bal={item.bal} />
                      

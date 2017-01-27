@@ -2,7 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Slider from 'react-native-slider'
-//import * as actions from '../actions/actions'
+import * as actions from '../../actions/actions'
 import {
   StyleSheet,
   View,

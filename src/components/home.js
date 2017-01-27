@@ -6,6 +6,7 @@ import Sliders from './slider'
 import * as actions from '../actions/actions'
 import TitleText from './presentational/titletext'
 import ToDoApp from './envelopes/ToDoApp'
+import MainApp from './mainpage/mainapp'
 import SavingsApp from './savingsgoal/SavingsApp'
 import {
   View,
@@ -58,11 +59,7 @@ class Home extends React.Component {
           <View style={this.viewStyle()}>
             <TitleText label="Month" />
           </View>
-          <View style={this.viewStyle()}>
-            <TitleText label="MainPage" />
-            <Sliders />
-            <MainPageInput />
-          </View>
+            <MainApp />
           <View style={this.viewStyle()}>
             <TitleText label="Archive" />
           </View>

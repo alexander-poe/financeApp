@@ -200,7 +200,7 @@ export const addPaymentSuccess = data => {
 	type: 'add_payment_success',
 	data
 }
-export const addPayment = (essen, flex, lts) => {
+export const addPayment = (essen, flex, lts, expdate) => {
   return dispatch => {
   	return fetch('http://localhost:8080/addpayments',
 		{
@@ -208,7 +208,8 @@ export const addPayment = (essen, flex, lts) => {
 			body: JSON.stringify({
 				essen,
 				flex,
-				lts
+				lts,
+				expdate
 			}),
 			headers: { "Content-Type" : "application/json" }
 		}).then(res => {
