@@ -8,7 +8,8 @@ export const getUserData = (data) => {
 			.then(res => {
 				return res.json()
 			}).then(res => {
-				console.log('get success', res)
+				console.log('get success GUD', res)
+				if (!res) return dispatch(getUserSuccess([]))
 				return dispatch(getUserSuccess(res))
 			})
 			.catch(e => {
@@ -26,7 +27,8 @@ export const getSavingsGoal = (data) => {
 			.then(res => {
 				return res.json()
 			}).then(res => {
-				console.log('get success', res)
+				console.log('get success savings', res)
+				if (!res) return dispatch(getSavingsGoalSuccess([]))
 				return dispatch(getSavingsGoalSuccess(res))
 			})
 			.catch(e => {
@@ -45,6 +47,7 @@ export const getEnvelopes = (env) => {
 				return res.json()
 			}).then(res => {
 				console.log('get env success', res)
+			    if (!res) return dispatch(getEnvelopesSuccess([]))
 				return dispatch(getEnvelopesSuccess(res))
 			})
 			.catch(e => {

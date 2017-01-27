@@ -8,7 +8,6 @@ import Sliders from './sliders'
 class MainItem extends React.Component {
     render() {
         var item = this.props.item;
-        console.log('item', item)
         let today = new Date();
         let dd = today.getDate();
         let mm = today.getMonth()+1;

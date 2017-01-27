@@ -40,9 +40,9 @@ class Home extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch(actions.getUserData())
+    this.props.dispatch(actions.getEnvelopes());
+    this.props.dispatch(actions.getSavingsGoal());
   }
-  //so ill use this as the parent component, then render other components
-  //in different views
   render() {
     return (
 
@@ -71,10 +71,5 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({
-  essen: state.essen,
-  flex: state.flex,
-  lts: state.lts,
-  title: state.title
-});
-export default connect(mapStateToProps)(Home);
+
+export default connect()(Home);

@@ -5,6 +5,6 @@ import {
 import ReduxThunk from 'redux-thunk' 
 import reducers from './reducers/reducers'
 
-const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
+const store = createStore(reducers, {initState}, applyMiddleware(ReduxThunk))
 
 export default store;

@@ -25,14 +25,6 @@ class MainContainer extends React.Component {
         this.openItem = this.openItem.bind(this);
 
     }
-    onComponentDidMount() {
-        this.props.dispatch(actions.getUserData())
-            // .then(() => data = this.props.data.map(function(obj) {
-            //     return obj
-            // }))
-
-
-    }
     alertMenu(rowData, rowID) {
         AlertIOS.alert(
             'Quick Menu',
@@ -72,19 +64,10 @@ class MainContainer extends React.Component {
     }
 
     render() {
-    if (this.props.data !== undefined) {
-        var array = this.props.data.map(function(item) {
-            console.log(item.essen)
-            const essen = item.essen
-            const flex = item.flex
-            return item;
-        })
-
-    }
         return (
             <View style={{flex:1}}>
                 <MainList
-                    items={this.state.items}
+                    items={this.props.data}
                     onPressItem={this.openItem}
                     onLongPressItem={this.alertMenu}/>
                 <TouchableHighlight
@@ -99,10 +82,13 @@ class MainContainer extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log('88',state.data)
-    return {
-    data: state.data
-}
+    let { data } = state;
+    console.log("before if", data);
+    if (!data) {
+      data = [];
+    }
+    console.log("after if", data);
+    return { data };
 }
 
 export default connect(mapStateToProps)(MainContainer)

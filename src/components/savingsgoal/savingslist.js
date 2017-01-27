@@ -1,6 +1,7 @@
 'use strict';
 var styles = require('./styles/styles');
 import React from 'react'
+import { connect } from 'react-redux'
 var SavingsItem = require('./savingsitem');
 import { ListView } from 'react-native'
 
@@ -29,5 +30,8 @@ class SavingsList extends React.Component {
 
 }
 
+const mapStateToProps = (state, props) => {
+    return {...state}
+}
 
-module.exports = SavingsList;
+export default connect(mapStateToProps)(SavingsList)

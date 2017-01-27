@@ -28,7 +28,7 @@ app.get('/envelopes', (req, res) => {
 })
 app.get('/savingsgoal', (req, res) => {
 	knex('savingsgoal').select('title', 'totalamount', 'currentamount', 'datedesired', 'status').then((data) => {
-		return res.status(200).json({data})
+		return res.status(200).json(data)
 	})
 })
 app.post('/envelopes', (req, res) => {
@@ -115,8 +115,6 @@ app.post('/addpayments', (req, res) => {
    		mm='0'+mm
 	} 
 	today = mm+'/'+dd+'/'+yyyy;
-
-	console.log(today);
 	knex.insert({
 		essen: req.body.essen,
 		flex: req.body.flex,

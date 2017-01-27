@@ -17,7 +17,6 @@ class SavingsSlider extends React.Component {
     }
   }
   sendEssen() {
-    console.log('sE', this.props.essen)
     this.props.dispatch(actions.updateEssen(this.state.essen))
   }
   sendFlex() {

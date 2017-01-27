@@ -1,6 +1,7 @@
 'use strict';
 var styles = require('./styles/styles');
 import React from 'react'
+import { connect } from 'react-redux';
 import { Text, View, TouchableHighlight } from 'react-native';
 import SavingsSlider from './savingsslider'
 
@@ -8,7 +9,6 @@ import SavingsSlider from './savingsslider'
 class SavingsItem extends React.Component {
     render() {
         var item = this.props.item;
-        console.log('item', item)
         let today = new Date();
         let dd = today.getDate();
         let mm = today.getMonth()+1;
