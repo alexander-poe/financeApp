@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import Sliders from './slider'
 import * as actions from '../actions/actions'
 import TitleText from './presentational/titletext'
+import ToDoApp from './envelopes/ToDoApp'
+import SavingsApp from './savingsgoal/SavingsApp'
 import {
   View,
   Text,
@@ -36,7 +38,7 @@ class Home extends React.Component {
     }
   }
   componentDidMount() {
-    // this.props.dispatch(actions.getUserData())
+    this.props.dispatch(actions.getUserData())
   }
   //so ill use this as the parent component, then render other components
   //in different views
@@ -46,10 +48,8 @@ class Home extends React.Component {
       <Swiper
         loop={false}
         showsPagination={false}
-        index={1}>
-        <View style={this.viewStyle()}>
-          <TitleText label="Savings Goal" />
-        </View>
+        index={1}>  
+          <SavingsApp />
         <Swiper
           horizontal={false}
           loop={false}
@@ -67,13 +67,17 @@ class Home extends React.Component {
             <TitleText label="Archive" />
           </View>
         </Swiper>        
-        <View style={this.viewStyle()}>
-          <TitleText label="Envelopes" />
-        </View>
+          <ToDoApp />
       </Swiper>  
 
     )
   }
 }
 
-export default connect()(Home);
+const mapStateToProps = (state, props) => ({
+  essen: state.essen,
+  flex: state.flex,
+  lts: state.lts,
+  title: state.title
+});
+export default connect(mapStateToProps)(Home);

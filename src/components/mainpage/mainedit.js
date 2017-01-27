@@ -17,7 +17,7 @@ var options = {
     }
 };
 
-class ToDoEdit extends React.Component {
+class MainEdit extends React.Component {
     constructor() {
         super();
         this.onUpdate = this.onUpdate.bind(this);
@@ -51,4 +51,4 @@ class ToDoEdit extends React.Component {
 }
 
 
-module.exports = ToDoEdit;
+module.exports = MainEdit;

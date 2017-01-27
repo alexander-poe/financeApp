@@ -9,7 +9,7 @@ import {
   Text
 } from 'react-native'
 
-class EnvSlider extends React.Component {
+class SavingsSlider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,4 +58,4 @@ const mapStateToProps = (state, props) => ({
   flex: state.flex,
   lts: state.lts
 });
-export default connect(mapStateToProps)(EnvSlider);
+export default connect(mapStateToProps)(SavingsSlider);

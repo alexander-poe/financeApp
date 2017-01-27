@@ -1,11 +1,11 @@
 'use strict';
 var styles = require('./styles/styles');
 import React from 'react'
-var ToDoListItem = require('./ToDoListItem');
+var SavingsItem = require('./savingsitem');
 import { ListView } from 'react-native'
 
 
-class ToDoList extends React.Component {
+class SavingsList extends React.Component {
 
     componentWillMount() {
         this.dataSource = new ListView.DataSource({
@@ -19,7 +19,7 @@ class ToDoList extends React.Component {
             <ListView
                 dataSource={dataSource}
                 renderRow={(rowData, sectionID, rowID) =>
-            <ToDoListItem item={rowData}
+            <SavingsItem item={rowData}
                 onPress={() => this.props.onPressItem(rowData, rowID)}
                 onLongPress={() => this.props.onLongPressItem(rowData, rowID)} />
         }
@@ -30,4 +30,4 @@ class ToDoList extends React.Component {
 }
 
 
-module.exports = ToDoList;
+module.exports = SavingsList;

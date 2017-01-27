@@ -2,18 +2,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Slider from 'react-native-slider'
-import * as actions from '../../actions/actions'
+//import * as actions from '../actions/actions'
 import {
   StyleSheet,
   View,
   Text
 } from 'react-native'
 
-class EnvSlider extends React.Component {
+class Sliders extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentBal: 213
+      essen: 1,
+      flex: 1,
+      lts: 1
     }
   }
   sendEssen() {
@@ -31,14 +33,32 @@ class EnvSlider extends React.Component {
       <View style={styles.container}>
         <Slider
           step={1}
-          value={parseInt(this.props.bal)}
+          value={2}
           minimumValue={ 0 }
-          maximumValue={ this.props.cost }
+          maximumValue={ 200 }
           onSlidingComplete={ this.sendEssen.bind(this) }
           onValueChange={ (essen) => this.setState({ essen }) }
         />
-          <Text>Amount till reached: ${ this.props.bal }</Text>
-      </View>    
+          <Text>Essentials: ${ this.state.value }</Text>
+        <Slider
+          step={1}
+          value={200}
+          minimumValue={ 0 }
+          maximumValue={ 200 }
+          onSlidingComplete={ this.sendFlex.bind(this) }
+          onValueChange={(flex) => this.setState({ flex })} 
+        />
+          <Text>Flexible: ${ this.state.flex }</Text>
+        <Slider
+          step={1}
+          value={200}
+          minimumValue={ 0 }
+          maximumValue={ 200 }
+          onSlidingComplete={ this.sendLts.bind(this) }
+          onValueChange={(lts) => this.setState({ lts })} 
+        />
+            <Text>Long-Term: ${ this.state.lts }</Text>
+      </View>
     );
   }
 };
@@ -58,4 +78,4 @@ const mapStateToProps = (state, props) => ({
   flex: state.flex,
   lts: state.lts
 });
-export default connect(mapStateToProps)(EnvSlider);
+export default connect(mapStateToProps)(Sliders);

@@ -2,10 +2,10 @@
 var styles = require('./styles/styles');
 import React from 'react'
 import { Text, View, TouchableHighlight } from 'react-native';
-import EnvSlider from './envslider'
+import SavingsSlider from './savingsslider'
 
 
-class ToDoListItem extends React.Component {
+class SavingsItem extends React.Component {
     render() {
         var item = this.props.item;
         console.log('item', item)
@@ -30,9 +30,10 @@ class ToDoListItem extends React.Component {
                             style={[styles.txt, item.complete && styles.completed]}>
                             Title: {item.txt} {"\n"}
                             Cost: ${item.cost} {"\n"}
-                            Date: {item.date} {"\n"}
+                            Bal: ${item.bal} {"\n"}
+                            Target Date: {item.date} {"\n"}
                         </Text>
-                        <EnvSlider cost={item.cost} bal={item.bal} />
+                        <SavingsSlider cost={item.cost} bal={item.bal} />
                      
                     </View>
                 </TouchableHighlight>
@@ -42,4 +43,4 @@ class ToDoListItem extends React.Component {
     }
 }
 
-module.exports = ToDoListItem;
+module.exports = SavingsItem;

@@ -1,11 +1,11 @@
 'use strict';
 import styles from './styles/styles'
 import React from 'react'
-import ToDoList from './ToDoList'
-import ToDoEdit from './ToDoEdit'
+import SavingsList from './savingslist'
+import SavingsEdit from './savingsedit'
 import { Text, View, ListView, TouchableHighlight, AlertIOS } from 'react-native'
 import Sliders from '../slider'
-class ToDoContainer extends React.Component {
+class SavingsContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -54,7 +54,7 @@ class ToDoContainer extends React.Component {
     openItem(rowData, rowID) {
         this.props.navigator.push({
             title: rowData && rowData.txt || 'New Item',
-            component: ToDoEdit,
+            component: SavingsEdit,
             passProps: {item: rowData, id: rowID, update: this.updateItem}
         });
     }
@@ -62,7 +62,7 @@ class ToDoContainer extends React.Component {
     render() {
         return (
             <View style={{flex:1}}>
-                <ToDoList
+                <SavingsList
                     items={this.state.items}
                     onPressItem={this.openItem}
                     onLongPressItem={this.alertMenu}/>
@@ -77,4 +77,4 @@ class ToDoContainer extends React.Component {
     }
 }
 
-module.exports = ToDoContainer;
+module.exports = SavingsContainer;
