@@ -9,11 +9,11 @@ Disclaimer: not intended for production use.
 
 ### Homepage/Login
 
-![full page](./Untitled_iphonesegold_portrait.png)
+![full page](Untitled_iphonesegold_portrait.png)
 
 ### Spaced Repetition Page
 
-![main page](./screenshot2_iphonesegold_portrait.png)
+![main page](homescreenshot._iphonesegold_portrait.png)
 
 ## Tech Stack
 
