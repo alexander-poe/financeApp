@@ -19,6 +19,6 @@ This project was mostly for school. I was given a week to learn react-native and
 This project is very close to being able to put on the app store. 
 Here are some things I would like to do before doing so. 
 
--User Authentication
--Finish Linking up data between front end and backend. 
--Data Storage on the backend needs to be reformatted so it supports reset dates, transaction history and an archive of past months. 
+<li>User Authentication</li>
+<li>Finish Linking up data between front end and backend.</li>
+<li>Data Storage on the backend needs to be reformatted so it supports reset dates, transaction history and an archive of past months.</li>
