@@ -5,7 +5,7 @@ This project was mostly for school. I was given a week to learn react-native and
 
 ## Screenshots
 
-![search results](rnapp2 copy.png)
+<img src="rnapp2 copy.png">
 
 ## Tech Stack
 
