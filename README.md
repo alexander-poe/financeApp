@@ -1,7 +1,7 @@
 # React-Native FinanceApp
 
 ## Description
-This project was mostly for school. I was given a week to learn react-native and in the process I came up with a minimum viable product for a finance app that I would very much like to have for myself. 
+This app provides a simple way to keep track of personal finances using 3 budget techniques. The 20 / 30 / 50 system where 20% percent of your income goes to long term savings, 30% to whatever you want, and 50% for expenses. Envelopes where you seek to fill up a certain amount per term for example, rent or insurance. Lastly, a savings goal, where you declare what you want and it provides formulas for savings. 
 
 ## Screenshots
 
@@ -16,9 +16,5 @@ This project was mostly for school. I was given a week to learn react-native and
 
 ## TODO
 
-This project is very close to being able to put on the app store. 
-Here are some things I would like to do before doing so. 
-
 <li>User Authentication</li>
-<li>Finish Linking up data between front end and backend.</li>
 <li>Data Storage on the backend needs to be reformatted so it supports reset dates, transaction history and an archive of past months.</li>
